@@ -11,6 +11,6 @@ module org.example.marcos_gb4pruebadeevaluacioncontinua2942024 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens Halting_Problem to javafx.fxml;
-    exports Halting_Problem;
+    opens uax.examen4.Halting_Problem to javafx.fxml;
+    exports uax.examen4.Halting_Problem;
 }
