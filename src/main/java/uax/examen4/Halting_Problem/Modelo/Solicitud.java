@@ -5,11 +5,21 @@ import java.util.Collections;
 import java.util.List;
 
 
+/**
+ * Clase que representa una solicitud que puede ser de tipo ORDENAR o IMPRIMIR_HORA.
+ * Esta clase tiene un método ejecutar() que ejecuta la acción correspondiente al tipo de solicitud.
+ */
 public class Solicitud {
 
     private TipoSolicitud tipo;
     private List<Integer> numeros;
 
+
+    /**
+     * Constructor de la clase Solicitud.
+     * @param tipo El tipo de la solicitud.
+     * @param numeros La lista de números a ordenar si el tipo de la solicitud es ORDENAR.
+     */
     public Solicitud(TipoSolicitud tipo, List<Integer> numeros) {
         this.tipo = tipo;
         this.numeros = numeros;
@@ -17,12 +27,19 @@ public class Solicitud {
 
 
 
+    /**
+     * Devuelve el tipo de la solicitud.
+     * @return El tipo de la solicitud.
+     */
     public TipoSolicitud tipo() {
         return tipo;
     }
 
 
 
+    /**
+     * Ejecuta la acción correspondiente al tipo de solicitud.
+     */
     public void ejecutar() {
         if (tipo == TipoSolicitud.ORDENAR) {
             ordenarNumeros();
@@ -33,6 +50,9 @@ public class Solicitud {
 
 
 
+    /**
+     * Ordena la lista de números y la imprime.
+     */
     private void ordenarNumeros() {
         Collections.sort(numeros);
         System.out.println("Lista ordenada: " + numeros);
@@ -40,12 +60,18 @@ public class Solicitud {
 
 
 
+    /**
+     * Imprime la hora actual.
+     */
     private void imprimirHora() {
         System.out.println(LocalTime.now());
     }
 
 
 
+    /**
+     * Inicia un hilo que imprime la hora actual cada segundo.
+     */
     public void ejecutarComoReloj() {
         if (tipo == TipoSolicitud.IMPRIMIR_HORA) {
             new Thread(() -> {
@@ -61,6 +87,5 @@ public class Solicitud {
             }).start();
         }
     }
-
 
 }
