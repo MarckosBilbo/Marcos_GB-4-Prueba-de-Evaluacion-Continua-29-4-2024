@@ -1,14 +1,10 @@
 package uax.examen4.Halting_Problem;
 
+import javafx.application.Application;
+import uax.examen4.Halting_Problem.Vista.VistaGlobal;
+
 public class Main {
-
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        Application.launch(VistaGlobal.class, args);
     }
-
-    //Para la creacion de fabricas concretas, seguramente aplique en el controlador
-
-    //MaquinaFactory factory = getFactoryBasedOnUserInput();
-    //MaquinaGenerica maquina = factory.crearMaquina();
-
 }

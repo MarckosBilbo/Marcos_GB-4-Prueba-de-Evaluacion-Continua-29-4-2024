@@ -11,6 +11,7 @@ module uax.examen4.Halting_Problem {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens uax.examen4.Halting_Problem to javafx.fxml;
+    opens uax.examen4.Halting_Problem to javafx.fxml, javafx.graphics;
+    opens uax.examen4.Halting_Problem.Vista to javafx.fxml, javafx.graphics;
     exports uax.examen4.Halting_Problem;
 }
