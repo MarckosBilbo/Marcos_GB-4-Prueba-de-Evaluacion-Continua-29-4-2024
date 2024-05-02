@@ -38,6 +38,16 @@ public class Solicitud {
 
 
     /**
+     * Devuelve los datos procesados por la solicitud.
+     * @return La lista de números ordenada si el tipo de la solicitud es ORDENAR.
+     */
+    public List<Integer> getDatos() {
+        return numeros;
+    }
+
+
+
+    /**
      * Ejecuta la acción correspondiente al tipo de solicitud.
      */
     public void ejecutar() {
@@ -61,16 +71,17 @@ public class Solicitud {
 
 
     /**
-     * Imprime la hora actual.
+     * Establece la hora actual como los datos de la solicitud almacenandola además.
      */
     private void imprimirHora() {
-        System.out.println(LocalTime.now());
+        LocalTime horaActual = LocalTime.now();
+        this.numeros = Collections.singletonList(horaActual.getSecond());
     }
 
 
 
     /**
-     * Inicia un hilo que imprime la hora actual cada segundo.
+     * Inicia un hilo que establece y almacena la hora actual cada segundo.
      */
     public void ejecutarComoReloj() {
         if (tipo == TipoSolicitud.IMPRIMIR_HORA) {

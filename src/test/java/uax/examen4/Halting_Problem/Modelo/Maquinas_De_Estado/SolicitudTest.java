@@ -30,9 +30,12 @@ class SolicitudTest {
      * Prueba que Solicitud ejecuta correctamente una solicitud de tipo IMPRIMIR_HORA.
      */
     @Test
-    void testEjecutarImprimirHora() {
+    void testEjecutarImprimirHora()throws InterruptedException {
         Solicitud solicitud = new Solicitud(TipoSolicitud.IMPRIMIR_HORA, null);
         solicitud.ejecutar();
+
+        // Espera a que el hilo termine antes de comprobar los datos de la solicitud
+        Thread.sleep(50);
         assertNotNull(solicitud.getDatos());
     }
 }
