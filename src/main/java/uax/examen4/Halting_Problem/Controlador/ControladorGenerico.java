@@ -11,6 +11,10 @@ import uax.examen4.Halting_Problem.Modelo.Maquinas_De_Estado.Maquina_QueSe_Detie
 import java.util.List;
 
 
+/**
+ * Controlador genérico para la aplicación.
+ * Este controlador maneja las acciones de los botones y la lógica de la máquina de verificación.
+ */
 public class ControladorGenerico {
 
     @FXML
@@ -22,35 +26,46 @@ public class ControladorGenerico {
     private MaquinaCheck maquinaCheck;
 
 
+    /**
+     * Constructor del controlador genérico.
+     * Inicializa la máquina de verificación con una máquina que se detiene y establece la siguiente máquina en la cadena de responsabilidad como una máquina en bucle.
+     */
     public ControladorGenerico() {
-        // Inicializa la máquina de verificación con una máquina que se detiene
         maquinaCheck = new MaquinaCheck(new MaquinaQueSeDetiene());
-        // Establece la siguiente máquina en la cadena de responsabilidad como una máquina en bucle
         maquinaCheck.setNext(new MaquinaEnBucle());
     }
 
 
 
+    /**
+     * Ordena una lista de números.
+     * Crea y ejecuta una solicitud de tipo ORDENAR.
+     * @param numeros La lista de números a ordenar.
+     */
     @FXML
     public void ordenar(List<Integer> numeros) {
-        // Crea y ejecuta una solicitud de tipo ORDENAR
         Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.ORDENAR, numeros);
         maquinaCheck.ejecutarSolicitud(solicitud);
-        // Aquí puedes actualizar la vista en base al estado de la máquina
     }
 
 
 
+    /**
+     * Imprime la hora actual.
+     * Crea y ejecuta una solicitud de tipo IMPRIMIR_HORA.
+     */
     @FXML
     public void imprimirHora() {
-        // Crea y ejecuta una solicitud de tipo IMPRIMIR_HORA
         Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.IMPRIMIR_HORA, null);
         maquinaCheck.ejecutarSolicitud(solicitud);
-        // Aquí puedes actualizar la vista en base al estado de la máquina
     }
 
 
 
+    /**
+     * Obtiene el veredicto de la máquina de verificación.
+     * @return El estado de la máquina de verificación.
+     */
     public EstadoMaquina obtenerVeredicto() {
         return maquinaCheck.getEstado();
     }
