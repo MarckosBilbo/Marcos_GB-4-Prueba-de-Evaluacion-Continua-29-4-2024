@@ -1,4 +1,4 @@
-module org.example.marcos_gb4pruebadeevaluacioncontinua2942024 {
+module uax.examen4.Halting_Problem {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
