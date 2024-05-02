@@ -42,7 +42,7 @@ public class MaquinaCheckTest {
     @Test
     public void testEjecutarSolicitud_MaquinaQueSeDetiene() {
         maquinaCheck = new MaquinaCheck(maquinaQueSeDetiene);
-        maquinaCheck.ejecutarSolicitud(new Solicitud(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2)));
+        maquinaCheck.ejecutarSolicitud(Solicitud.getInstance(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2)));
         assertEquals(EstadoMaquina.SE_DETINE, maquinaCheck.getEstado());
     }
 
@@ -55,7 +55,7 @@ public class MaquinaCheckTest {
     @Test
     public void testEjecutarSolicitud_MaquinaEnBucle() {
         maquinaCheck = new MaquinaCheck(maquinaEnBucle);
-        maquinaCheck.ejecutarSolicitud(new Solicitud(TipoSolicitud.IMPRIMIR_HORA, null));
+        maquinaCheck.ejecutarSolicitud(Solicitud.getInstance(TipoSolicitud.IMPRIMIR_HORA, null));
         assertEquals(EstadoMaquina.EN_BUCLE, maquinaCheck.getEstado());
     }
 }

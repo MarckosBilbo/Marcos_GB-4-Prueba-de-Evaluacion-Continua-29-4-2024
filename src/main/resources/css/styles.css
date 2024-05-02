@@ -1,0 +1,38 @@
+.root {
+    background-color: #f0f0f0; /* Cambia el color de fondo a un gris claro */
+}
+
+.button {
+    background-color: #4CAF50; /* Cambia el color de fondo a un verde */
+    border: none;
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center;
+    display: inline-block;
+    font-size: 18px; /* Cambia el tamaño del texto a 18px */
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 12px 28px; /* Aumenta el padding para hacer los botones más grandes */
+    transition-duration: 0.4s;
+    border-radius: 16px; /* Aumenta el radio de la frontera para hacer los botones más redondeados */
+}
+
+.button:hover {
+    background-color: #45a049; /* Cambia el color de fondo a un verde más oscuro cuando se pasa el ratón por encima */
+}
+
+.label {
+    font-size: 22px; /* Cambia el tamaño del texto a 22px */
+    color: #333; /* Cambia el color del texto a un gris oscuro */
+    font-family: Arial, sans-serif;
+}
+
+.vbox {
+    padding: 24px; /* Aumenta el padding para dar más espacio alrededor de los elementos */
+    spacing: 12px; /* Aumenta el espacio entre los elementos */
+}
+
+.gridpane {
+    hgap: 12px; /* Aumenta el espacio horizontal entre los elementos */
+    vgap: 12px; /* Aumenta el espacio vertical entre los elementos */
+    padding: 12px; /* Aumenta el padding para dar más espacio alrededor de los elementos */
+}

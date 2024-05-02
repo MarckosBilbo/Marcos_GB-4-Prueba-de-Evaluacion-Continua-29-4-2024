@@ -22,7 +22,7 @@ public class MaquinaDetieneTest {
     @Test
     void testEjecutarSolicitudOrdenar() {
         MaquinaQueSeDetiene maquina = new MaquinaQueSeDetiene();
-        Solicitud solicitud = new Solicitud(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2));
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2));
         maquina.ejecutarSolicitud(solicitud);
         assertEquals(Arrays.asList(1, 2, 3), solicitud.getDatos());
     }

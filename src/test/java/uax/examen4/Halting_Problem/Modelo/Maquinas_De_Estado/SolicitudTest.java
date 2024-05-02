@@ -19,7 +19,7 @@ class SolicitudTest {
      */
     @Test
     void testEjecutarOrdenar() {
-        Solicitud solicitud = new Solicitud(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2));
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.ORDENAR, Arrays.asList(3, 1, 2));
         solicitud.ejecutar();
         assertEquals(Arrays.asList(1, 2, 3), solicitud.getDatos());
     }
@@ -31,7 +31,7 @@ class SolicitudTest {
      */
     @Test
     void testEjecutarImprimirHora()throws InterruptedException {
-        Solicitud solicitud = new Solicitud(TipoSolicitud.IMPRIMIR_HORA, null);
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.IMPRIMIR_HORA, null);
         solicitud.ejecutar();
 
         // Espera a que el hilo termine antes de comprobar los datos de la solicitud

@@ -8,9 +8,8 @@ import uax.examen4.Halting_Problem.Modelo.TipoSolicitud;
 import uax.examen4.Halting_Problem.Modelo.Maquinas_De_Estado.MaquinaCheck.MaquinaCheck;
 import uax.examen4.Halting_Problem.Modelo.Maquinas_De_Estado.Maquina_En_Bucle.MaquinaEnBucle;
 import uax.examen4.Halting_Problem.Modelo.Maquinas_De_Estado.Maquina_QueSe_Detiene.MaquinaQueSeDetiene;
-
-
 import java.util.List;
+
 
 public class ControladorGenerico {
 
@@ -22,6 +21,7 @@ public class ControladorGenerico {
 
     private MaquinaCheck maquinaCheck;
 
+
     public ControladorGenerico() {
         // Inicializa la máquina de verificación con una máquina que se detiene
         maquinaCheck = new MaquinaCheck(new MaquinaQueSeDetiene());
@@ -29,21 +29,27 @@ public class ControladorGenerico {
         maquinaCheck.setNext(new MaquinaEnBucle());
     }
 
+
+
     @FXML
     public void ordenar(List<Integer> numeros) {
         // Crea y ejecuta una solicitud de tipo ORDENAR
-        Solicitud solicitud = new Solicitud(TipoSolicitud.ORDENAR, numeros);
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.ORDENAR, numeros);
         maquinaCheck.ejecutarSolicitud(solicitud);
         // Aquí puedes actualizar la vista en base al estado de la máquina
     }
 
+
+
     @FXML
     public void imprimirHora() {
         // Crea y ejecuta una solicitud de tipo IMPRIMIR_HORA
-        Solicitud solicitud = new Solicitud(TipoSolicitud.IMPRIMIR_HORA, null);
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.IMPRIMIR_HORA, null);
         maquinaCheck.ejecutarSolicitud(solicitud);
         // Aquí puedes actualizar la vista en base al estado de la máquina
     }
+
+
 
     public EstadoMaquina obtenerVeredicto() {
         return maquinaCheck.getEstado();

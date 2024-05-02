@@ -19,7 +19,7 @@ class MaquinaEnBucleTest {
     @Test
     void testEjecutarSolicitudImprimirHora() throws InterruptedException {
         MaquinaEnBucle maquina = new MaquinaEnBucle();
-        Solicitud solicitud = new Solicitud(TipoSolicitud.IMPRIMIR_HORA, null);
+        Solicitud solicitud = Solicitud.getInstance(TipoSolicitud.IMPRIMIR_HORA, null);
         maquina.ejecutarSolicitud(solicitud);
 
         // Espera a que el hilo termine antes de comprobar los datos de la solicitud
