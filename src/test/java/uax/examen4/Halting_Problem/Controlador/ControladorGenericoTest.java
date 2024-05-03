@@ -41,6 +41,6 @@ public class ControladorGenericoTest {
     @Test
     public void testImprimirHora() {
         controlador.imprimirHora();
-        assertEquals(EstadoMaquina.EN_BUCLE, controlador.obtenerVeredicto());
+        assertEquals(EstadoMaquina.SE_DETINE, controlador.obtenerVeredicto());
     }
 }

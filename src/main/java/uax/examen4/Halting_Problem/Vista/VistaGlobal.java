@@ -1,4 +1,5 @@
 package uax.examen4.Halting_Problem.Vista;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -15,6 +16,9 @@ import javafx.util.Duration;
 import uax.examen4.Halting_Problem.Controlador.ControladorGenerico;
 import uax.examen4.Halting_Problem.Modelo.Maquinas_De_Estado.MaquinaCheck.EstadoMaquina;
 import uax.examen4.Halting_Problem.Modelo.Solicitud;
+import uax.examen4.Halting_Problem.Vista.ExcepcionesInterfaz.NoNumberSelectedException;
+import uax.examen4.Halting_Problem.Vista.ExcepcionesInterfaz.NoNumbersIntroducedException;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -94,8 +98,17 @@ public class VistaGlobal extends Application {
         btnIntroducir.setOnMouseEntered(event -> btnIntroducir.setStyle("-fx-background-color: gray; -fx-text-fill: white; -fx-font-size: 60px; -fx-border-color: white; -fx-border-width: 10px; -fx-border-radius: 60px; -fx-background-radius:63px;"));
         btnIntroducir.setOnMouseExited(event -> btnIntroducir.setStyle("-fx-background-color: Black; -fx-text-fill: white; -fx-font-size: 60px; -fx-border-color: white; -fx-border-width: 10px; -fx-border-radius: 60px; -fx-background-radius:63px;"));
         btnIntroducir.setOnAction(event -> {
-            numeros.add(Integer.parseInt(display.getText()));
-            display.setText("");
+            try {
+                if (display.getText().isEmpty()) {
+                    throw new NoNumberSelectedException("*Debe elegir un número antes de introducir*");
+                }
+                numeros.add(Integer.parseInt(display.getText()));
+                display.setText("");
+            } catch (NoNumberSelectedException e) {
+                // Mostrar el mensaje de la excepción en la interfaz
+                display.setText(e.getMessage());
+                display.setStyle("-fx-font-size: 40px; -fx-text-fill: red;");
+            }
         });
 
         Button btnOrdenar = new Button("Ordenar");
@@ -103,8 +116,17 @@ public class VistaGlobal extends Application {
         btnOrdenar.setOnMouseEntered(event -> btnOrdenar.setStyle("-fx-background-color: gray; -fx-text-fill: white; -fx-font-size: 60px; -fx-border-color: white; -fx-border-width: 10px; -fx-border-radius: 60px; -fx-background-radius:63px;"));
         btnOrdenar.setOnMouseExited(event -> btnOrdenar.setStyle("-fx-background-color: Black; -fx-text-fill: white; -fx-font-size: 60px; -fx-border-color: white; -fx-border-width: 10px; -fx-border-radius: 60px; -fx-background-radius:63px;"));
         btnOrdenar.setOnAction(event -> {
-            controlador.ordenar(numeros);
-            primaryStage.setScene(crearEscenaListaOrdenada(primaryStage));
+            try {
+                if (numeros.isEmpty()) {
+                    throw new NoNumbersIntroducedException("*No ha metido números aún*");
+                }
+                controlador.ordenar(numeros);
+                primaryStage.setScene(crearEscenaListaOrdenada(primaryStage));
+            } catch (NoNumbersIntroducedException e) {
+                // Mostrar el mensaje de la excepción en la interfaz
+                display.setText(e.getMessage());
+                display.setStyle("-fx-font-size: 40px; -fx-text-fill: red;");
+            }
         });
 
         HBox botones = new HBox(btnIntroducir, btnOrdenar);

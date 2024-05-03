@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: uax.examen4.Halting_Problem.Controlador.ControladorGenericoTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE!
+uax.examen4.Halting_Problem.Controlador.ControladorGenericoTest.testImprimirHora()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "uax.examen4.Halting_Problem.Controlador.ControladorGenerico.imprimirHora()" because "this.controlador" is null
+	at uax.examen4.Halting_Problem.Controlador.ControladorGenericoTest.testImprimirHora(ControladorGenericoTest.java:43)
+
+uax.examen4.Halting_Problem.Controlador.ControladorGenericoTest.testOrdenar()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "uax.examen4.Halting_Problem.Controlador.ControladorGenerico.ordenar(java.util.List)" because "this.controlador" is null
+	at uax.examen4.Halting_Problem.Controlador.ControladorGenericoTest.testOrdenar(ControladorGenericoTest.java:33)
+

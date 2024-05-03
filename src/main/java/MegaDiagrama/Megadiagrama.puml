@@ -1,0 +1,109 @@
+@startuml
+
+package Halting_Problem {
+
+    package Modelo {
+        class Solicitud {
+            +getInstance()
+            +ejecutar()
+            +Ordenar()
+            +imprimirHora()
+            +ejecutarComoReloj()
+        }
+        enum TipoSolicitud {
+            ORDENAR
+            IMPRIMIR_HORA
+        }
+        interface MaquinaGenerica {
+            +setNext(MaquinaGenerica maquina)
+            +ejecutarSolicitud(Solicitud solicitud)
+        }
+        package Maquinas_De_Estado {
+            package MaquinaCheck {
+                enum EstadoMaquina {
+                    SE_DETINE
+                    EN_BUCLE
+                }
+                class MaquinaCheckK {
+                    +MaquinaCheck()
+                    +setNext()
+                    +ejecutarSolicitud()
+                    +getEstado()
+                }
+            }
+            package Maquina_En_Bucle {
+                class MaquinaEnBucle{
+                    +setNext(MaquinaGenerica maquina)
+                    +ejecutarSolicitud(Solicitud solicitud)
+                }
+            }
+            package Maquina_QueSe_Detiene {
+                class MaquinaQueSeDetiene{
+                    +setNext(MaquinaGenerica maquina)
+                    +ejecutarSolicitud(Solicitud solicitud)
+                }
+            }
+            interface MaquinaFactory {
+                +crearMaquina()
+            }
+            class MaquinaBucleFact {
+                +crearMaquina()
+            }
+            class MaquinaDetieneFact {
+                +crearMaquina()
+            }
+
+        }
+    }
+
+    package Controlador {
+        class ControladorGenerico {
+            +ControladorGenerico()
+            +ordenar(List<Integer> numeros)
+            +imprimirHora()
+            +obtenerVeredicto()
+        }
+    }
+
+    package Vista {
+        class VistaGlobal extends Application {
+            +start(Stage primaryStage)
+            -crearEscenaTeclado(Stage primaryStage)
+            -crearEscenaListaOrdenada(Stage primaryStage)
+            -crearEscenaVeredicto()
+            -crearEscenaReloj()
+            -crearEscenaVeredictoReloj()
+        }
+        package ExcepcionesInterfaz {
+            class NoNumbersIntroducedException{
+            +NoNumbersIntroducedException()
+            }
+            class NoNumberSelectedException{
+            +NoNumberSelectedException()
+            }
+        }
+    }
+
+    class Main{
+    +Application.launch(VistaGlobal.class)
+    }
+
+}
+
+Main --> VistaGlobal
+
+VistaGlobal --> VistaGlobal: start()
+Solicitud --> TipoSolicitud
+ControladorGenerico --> MaquinaCheck
+Solicitud <-- Maquinas_De_Estado
+VistaGlobal --> ControladorGenerico
+VistaGlobal --> NoNumbersIntroducedException
+VistaGlobal --> NoNumberSelectedException
+MaquinaBucleFact ..> MaquinaFactory
+MaquinaDetieneFact ..> MaquinaFactory
+Maquinas_De_Estado ..> MaquinaGenerica
+MaquinaQueSeDetiene --> MaquinaDetieneFact
+MaquinaEnBucle --> MaquinaBucleFact
+MaquinaCheckK --> EstadoMaquina
+
+@enduml
