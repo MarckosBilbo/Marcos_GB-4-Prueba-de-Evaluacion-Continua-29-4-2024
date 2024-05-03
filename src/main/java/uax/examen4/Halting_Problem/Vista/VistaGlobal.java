@@ -1,5 +1,4 @@
 package uax.examen4.Halting_Problem.Vista;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -23,6 +22,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
+
+/**
+ * Clase VistaGlobal que extiende de Application.
+ * Esta clase se encarga de la interfaz gráfica de la aplicación.
+ */
 public class VistaGlobal extends Application {
 
     private ControladorGenerico controlador = new ControladorGenerico();
@@ -30,6 +34,12 @@ public class VistaGlobal extends Application {
     private Label display = new Label();
     private Solicitud solicitud = Solicitud.getInstance();
 
+
+
+    /**
+     * Método start que se ejecuta al iniciar la aplicación.
+     * @param primaryStage El escenario principal de la aplicación.
+     */
     @Override
     public void start(Stage primaryStage) {
         Button btnImprimirHora = new Button("Imprimir Hora");
@@ -59,6 +69,13 @@ public class VistaGlobal extends Application {
         primaryStage.show();
     }
 
+
+
+    /**
+     * Método para crear la escena del teclado.
+     * @param primaryStage El escenario principal de la aplicación.
+     * @return La escena creada.
+     */
     private Scene crearEscenaTeclado(Stage primaryStage) {
         GridPane teclado = new GridPane();
         for (int i = 0; i < 10; i++) {
@@ -101,6 +118,13 @@ public class VistaGlobal extends Application {
         return escenaTeclado;
     }
 
+
+
+    /**
+     * Método para crear la escena de la lista ordenada.
+     * @param primaryStage El escenario principal de la aplicación.
+     * @return La escena creada.
+     */
     private Scene crearEscenaListaOrdenada(Stage primaryStage) {
         List<String> numerosOrdenados = numeros.stream()
                 .sorted()
@@ -136,6 +160,12 @@ public class VistaGlobal extends Application {
         return escenaListaOrdenada;
     }
 
+
+
+    /**
+     * Método para crear la escena del veredicto.
+     * @return La escena creada.
+     */
     private Scene crearEscenaVeredicto() {
         EstadoMaquina estado = controlador.obtenerVeredicto();
         Label label;
@@ -169,6 +199,12 @@ public class VistaGlobal extends Application {
         return escenaVeredicto;
     }
 
+
+
+    /**
+     * Método para crear la escena del reloj.
+     * @return La escena creada.
+     */
     private Scene crearEscenaReloj() {
         Label labelHora = new Label();
         labelHora.setStyle("-fx-font-size: 75px; -fx-text-fill: #333;");
@@ -200,6 +236,14 @@ public class VistaGlobal extends Application {
         return escenaReloj;
     }
 
+
+
+    /**
+     * Método para crear la escena del veredicto del reloj.
+     * Esta escena muestra un mensaje indicando que el programa nunca se detiene, y proporciona botones para cerrar la aplicación o volver al inicio.
+     *
+     * @return La escena creada, que contiene un mensaje, un botón para cerrar la aplicación y un botón para volver al inicio.
+     */
     private Scene crearEscenaVeredictoReloj() {
         Label label = new Label("-El programa nunca se detiene 'Looping'");
         label.setStyle("-fx-font-size: 37px; -fx-text-fill: #333; -fx-font-family: 'Consolas';");
