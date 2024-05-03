@@ -4,12 +4,11 @@ Repositorio --> https://github.com/MarckosBilbo/Marcos_GB-4-Prueba-de-Evaluacion
 
 ### Patrones[Chain of Resposability/Factoy Method/Singelton]
 
-
 # 1ºModelo:
 
 El modelo de este proyecto está diseñado para simular el problema de la parada (Halting Problem) de Turing. El modelo consta de varias clases y paquetes que interactúan entre sí para simular este problema.
 
-**[Modelo-->(])**
+**[Modelo-->(https://github.com/MarckosBilbo/Marcos_GB-4-Prueba-de-Evaluacion-Continua-29-4-2024/tree/main/src/main/java/uax/examen4/Halting_Problem/Modelo])**
 
 ## -Paquete `uax.examen4.Halting_Problem.Modelo`
 
@@ -64,14 +63,11 @@ Esta enumeración representa los posibles estados de una máquina. Los estados s
 
 Estas son las clases y paquetes principales que componen el modelo de este proyecto. Juntos, simulan el problema de la parada de Turing.
 
-
-
-
 # 2ºControlador:
 
 El controlador de este proyecto está diseñado para manejar las acciones de los botones y la lógica de la máquina de verificación. El controlador consta de una clase principal que define el comportamiento del controlador.
 
-**[Controlador -->(])**
+**[Controlador -->(https://github.com/MarckosBilbo/Marcos_GB-4-Prueba-de-Evaluacion-Continua-29-4-2024/tree/main/src/main/java/uax/examen4/Halting_Problem/Controlador])**
 
 ## -Clase `ControladorGenerico`
 
@@ -95,14 +91,11 @@ Este método obtiene el veredicto de la máquina de verificación.
 
 Estos son los métodos principales que componen la clase `ControladorGenerico`. Juntos, manejan las acciones de los botones y la lógica de la máquina de verificación.
 
-
-
-
 # 3ºVista:
 
 La vista de este proyecto está diseñada para proporcionar una interfaz gráfica de usuario (GUI) para interactuar con el modelo. La vista consta de una clase principal que define la interfaz gráfica de usuario.
 
-**[Vista -->(])**
+**[Vista -->(https://github.com/MarckosBilbo/Marcos_GB-4-Prueba-de-Evaluacion-Continua-29-4-2024/tree/main/src/main/java/uax/examen4/Halting_Problem/Vista])**
 
 ## Clase `VistaGlobal`
 
